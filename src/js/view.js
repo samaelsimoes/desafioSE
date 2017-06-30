@@ -8,11 +8,6 @@ export function render(el, state) {
     );
 }
 
-function renderTodoTitle() {
-
-    return `<h1 class="todo--title">SoftExpert</h1>`;
-}
-
 function renderApp(input, todoList,todoFilter) {
 
     if(isEnabled('renderBottom')&& !isEnabled('filter')) { // minha url com o final #renderBottom
@@ -29,7 +24,6 @@ function renderApp(input, todoList,todoFilter) {
                 return renderAddFilterTop(input, todoList);
             }else{
                 
-                alert("seila o valor");
                 return renderAddTodoAtTop(input, todoList); //sem url correta do #renderBottom
             }
 
@@ -48,20 +42,16 @@ estão ativos também. A hash da URL deve estar mais ou menos assim "index.html#
 }
 
 function renderAddTodoAtTop(input, todoList) { // aqui estou montando o html do sem #renderBottom 
-    return `<section class="section"> 
-                <div class="container">
-                    
+    return   renderTodoTitle() +   
+    		`<section class="section"> 
+                <div class="container">                  
                     <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 navbar-left">
-                           
-                                <div id="app"> 
-
-                                    <h2> Desafio SoftExpert: sem#RenderBottom </h3> <Br>
-
-                                    ${input}
-                                    <h3>${todoList}</h3>
-                                </div>
+                        <div class="col-md-4 col-md-offset-4">                        
+                            <div id="app"> 
                             
+                                ${input}
+                                <h3>${todoList}</h3>
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -69,19 +59,14 @@ function renderAddTodoAtTop(input, todoList) { // aqui estou montando o html do 
 }
 
 function renderAddTodoAtBottom(input, todoList) { // aqui estou montando o html do #renderBottom
-    return `<section class="section"> 
-                <div class="container">
+    return 	renderTodoTitle()+
+    		`<section class="section"> 
+                <div class="container">			
                     <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                            
-                                <div class="row">
-                                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 navbar-left">
-                                        <h3> Desafio SoftExpert: #RenderBottom</h3> <br>
-                                        <h3>${todoList}</h3>
-                                        ${input}
-                                    </div>
-                                </div>
-                            
+                        <div class="col-md-4 col-md-offset-4">    
+
+                            <h3>${todoList}</h3>
+                            ${input}                                      
                         </div>
                     </div>
                 </div>
@@ -89,53 +74,42 @@ function renderAddTodoAtBottom(input, todoList) { // aqui estou montando o html 
 }
 
 function getfilter(){
-    return `<section> 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-11 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                            <form class="filter">
+    return `<form class="filter">
+                <div className="filter navbar-center" onChange={onChange}>
+                    <label className="radio-inline align="middle"">
 
-                                <div className="filter navbar-center" onChange={onChange}>
-                                    <label className="radio-inline align="middle"">
+                        <input type="radio" name="filter" value="all" id="all" checked/> Mostrar todos<br/>
+                    </label><br>
+                    <label className="radio-inline align="middle"">
 
-                                        <input type="radio" name="filter" value="all" id="all" checked/> Mostrar todos<br/>
-                                    </label><br>
-                                    <label className="radio-inline align="middle"">
+                        <input type="radio" name="filter" value="open" id="open" /> Abertos<br/>
+                    </label><br>
+                    <label className="checkbox-inline align="middle"">
 
-                                        <input type="radio" name="filter" value="open" id="open" /> Abertos<br/>
-                                    </label><br>
-                                    <label className="checkbox-inline align="middle"">
-
-                                        <input type="radio" name="filter" value="closed" id="close" /> Fechados<br/>
-                                    </label>
-                                </div>
-                            </form>            
-                            </div>
-                        </div>
-                    </div>
+                        <input type="radio" name="filter" value="closed" id="close" /> Fechados<br/>
+                    </label>
                 </div>
-            </section>`;
+            </form>`;
 }
 
 function renderInput() {
     return `<div class="todo__input">
+
                 <input type="text" id="todoInput">
                 <button  class="btn btn-primary" id="addTodo" type="onclick">Add</button>
             </div>`;
 }
 function renderAddFilter(input, todoList) { // montando html do FILTRO
-    return `<section> 
+    return   renderTodoTitle() + 
+    		`<section class="section"> 
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-11 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                           
+                        <div class="col-md-4 col-md-offset-4 ">                               
+                            <div id="app">
 
-                                 <h2> Desafio SoftExpert: #filter </h3> <Br>
-                                    
-                                <div id="app">
-                                    ${todoList}`
-                                    + getfilter() +
-                                `</div>    
+                                ${todoList}`
+                                + getfilter() +
+                            `</div>    
                         </div>
                     </div>
                 </div>
@@ -143,23 +117,57 @@ function renderAddFilter(input, todoList) { // montando html do FILTRO
 }
 
 function renderAddFilterTop(input, todoList) {
-    return `<div id="app">`
+    return   renderTodoTitle() +
+    		`<div id="app">
+    			<section class="section">
+	            	<div class="container">
+	            		<div class="row ">
+	            			  <div class="col-md-4 col-md-offset-4"> `
+	           
+	            				+ getfilter() +
 
-            + getfilter() +
-            `${todoList} </div>`
-            + renderInput();
+	            				`
+	            			</div>
+	            		</div>
+	            	</div> 
+	            </section>
+	            <section class="section">
+	            	<div class="container">
+	            		<div class="row">
+	            			  <div class="col-md-4 col-md-offset-4"> 
+
+	            			  	${todoList}         ` 
+	            				+ renderInput() + 
+	    					`</div>
+	    				</div>
+	    			</div>
+	    		</section>
+	    	</div>`;
 }
 
 function renderTodos(todoItems) {
     return `<ul class="todo">${todoItems}</ul>`;
 }
 
+function renderTodoTitle() {
+    return  `<link href = "./src/css/bootstrap.css" rel="stylesheet">    
+            <section class="section"> 
+    			<div class="container">
+		    		<div class="row">	
+		  				<div class="col-md-4 col-md-offset-4 ">
+
+		    				<h1 class="todo--title"> Desafio SoftExpert </h1>
+		    			</div>
+		    		</div>
+		    	</div>
+	    	</section>`;
+}
+
 function renderTodoItem(todo) {
 
     const todoClass = `todo__item todo__item--${todo.done ? 'done' : 'open'}`;
 
-    return `   <link href = "./src/css/bootstrap.css" rel="stylesheet">    
-            <li class="${todoClass}">
+    return `<li class="${todoClass}">
                 <input class="js_toggle_todo" type="checkbox" data-id="${todo.id}" ${todo.done ? ' checked' : ''}>
                 ${todo.text}
             </li>`;

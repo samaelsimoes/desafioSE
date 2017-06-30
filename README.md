@@ -132,10 +132,10 @@ utilizar o filtro. Nossos especialistas UX entendem que quando os dois testes es
 habilitados `#renderBottom#filter`, a parte de baixo da interface fica sobrecarregada.
 
 Nós gostaríamos de testar a posição do filtro no topo da interface, quando o input
-está posicionado na posição de baixo na aplicação ("renderBottom").                        
+está posicionado na posição de baixo na aplicação ("renderBottom").        -- okey                 
 
 Este teste, pode se chamar "filterTop" e só pode ser ativado quando os testes "filter" e "renderBottom"
-estão ativos também. A hash da URL deve estar mais ou menos assim "index.html#filter#renderBottom#filterTop".
+estão ativos também. A hash da URL deve estar mais ou menos assim "index.html#filter#renderBottom#filterTop". -- okey feito
 
 ------------------------------------------============================================================================================================================---------------------------------------
 ### WEB-110: Melhore a aparência visual da aplicação
@@ -144,11 +144,11 @@ Nosso departamento de design acredita que o design atual não é o melhor e pode
 
 Por favor, melhore esta experiência para o usuário. Sinta-se livre para usar seu próprio design,
 ou para implementar um já existente. Se você não consegue decidir em qual utilizar, nossa proposta
-seria utilizar [este aqui](https://dribbble.com/shots/2084038-Just-Do).
+seria utilizar [este aqui](https://dribbble.com/shots/2084038-Just-Do). - okey 
 
 Sinta-se livre também para adicionar um pré-processador CSS como Sass, PostCSS ou 
 Less ao build do webpack para tornar sua vida um pouco mais fácil.
-Usar CSS puro, também não é um problema. Faça como achar melhor.
+Usar CSS puro, também não é um problema. Faça como achar melhor. - - não quis usar sass
 
 ------------------------------------------============================================================================================================================---------------------------------------
 
@@ -163,22 +163,23 @@ a sua solução para isso funcione no Chrome e no Firefox.
 
 Se desejar, utilizar alguma tecnologia no back para salvar, apenas nos informe como
 iremos ligá-la para revisar e nos envies os fontes também.
-
+------------------------------------------============================================================================================================================---------------------------------------
 ### WEB-201: Extraia o CSS em um arquivo separado
 
 Atualmente, o CSS da aplicação está incluído no `bundle.js`.
 Entretanto, nossos usuários começaram a comentar sobre a aplicação estar
-sem nenhum estilo quando inicia, e nós gostaríamos então de separar o CSS em outro arquivo.
+sem nenhum estilo quando inicia, e nós gostaríamos então de separar o CSS em outro arquivo. -- okey
 
 Por favor, integre o plugin `extract-text-webpack-plugin` na configuração do webpack
 e carregue o arquivo CSS separamente do bundle javascript.
-
+------------------------------------------============================================================================================================================---------------------------------------
 ### WEB-202: Otimize a geração do bundle
 
 Atualmente nosso bundle gerado não está otimizado e está um pouco grande para uma 
 aplicação pequena. Por favor, ajuste as configurações do webpack para que possamos
 criar um bundle otimizado ao invés do bundle grande. Seria ideal se tanto Javascript
 e o CSS fossem minificados.
+------------------------------------------============================================================================================================================---------------------------------------
 
 ### WEB-203: Substitua a lib/state.js
 
@@ -191,6 +192,7 @@ fosse substituida pela lib original que à influenciou.
 A lib que nos influenciou foi o `Redux`. Por favor refatore o código atual
 para que use `Redux` invés do código que fizemos nós mesmos.
 
+------------------------------------------============================================================================================================================---------------------------------------
 ### WEB-301: Otimize a renderização da view
 
 Infelizmente alguns dos nossos usuários começaram a reclamar que a performance
@@ -221,6 +223,8 @@ Por favor, crie um plugin babel que pode alterar estaticamente o código `isEnab
 `true` ou `false` baseado em alguma parte da configuração webpack (à sua escolha). 
 
 Dica: Provavelmente você pode criar um webpack loader para isso.
+
+------------------------------------------============================================================================================================================---------------------------------------
 
 ### WEB-303: Melhore a experiência do desenvolvedor
 
