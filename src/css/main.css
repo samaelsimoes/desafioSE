@@ -1,0 +1,31 @@
+html, body, .todo {
+    margin: 0;
+    padding: 0;
+}
+
+.todo {
+    list-style-type: none;
+}
+
+.todo__input, .todo__item {
+    margin: 10px;
+}
+
+.todo__item--done {
+    text-decoration: line-through;
+}
+
+#addTodo {
+    margin-left: 10px;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    background-repeat: no-repeat;
+    background-image: url(http://www.toyoville.com.br/wp-content/themes/toyoville/assets/botao-formulario-compra-botao-radio-02.png);
+}
+input[type="radio"]:checked {
+    background-image: url(http://www.toyoville.com.br/wp-content/themes/toyoville/assets/botao-formulario-compra-botao-radio-01.png);
+}
